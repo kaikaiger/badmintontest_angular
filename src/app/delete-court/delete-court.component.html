@@ -1,0 +1,14 @@
+<!-- <p>delete-court works!</p> -->
+<div style="text-align: center; margin: auto;" class="mb-3 w-25">
+    <form #deleteCourtForm="ngForm" (ngSubmit)="onSubmit(deleteCourtForm.value)">
+        <div>
+            <label for="courtArea" class="form-label">地區場館: </label>
+            <select id="courtArea" name="courtArea" ngModel required class="form-select">
+                <option *ngFor="let area of allCourtArea" [value]="area">{{area}}</option>
+            </select>
+        </div>
+        
+        <br><input type="submit" value="確認" [disabled]="deleteCourtForm.invalid" class="btn btn-secondary">
+    </form>
+    <br><a routerLink="../all-information" class="btn btn-outline-secondary">上一頁</a>
+</div>

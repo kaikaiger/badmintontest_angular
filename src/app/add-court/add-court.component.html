@@ -1,0 +1,16 @@
+<!-- <p>add-court works!</p> -->
+
+<div style="text-align: center; margin: auto;" class="mb-3 w-25">
+    <form #addCourtForm="ngForm" (ngSubmit)="onSubmit(addCourtForm.value)">
+        <div>
+            <label for="courtArea" class="form-label">地區場館: </label>
+            <input id="courtArea" name="courtArea" ngModel required class="form-control">
+        </div>
+        <div>
+            <label for="courtName" class="form-label">場地名稱: </label>
+            <input id="courtName" name="courtName" ngModel required class="form-control">
+        </div>
+        <br><input type="submit" value="確認" [disabled]="addCourtForm.invalid">
+    </form>
+    <br><a routerLink="../all-information" class="btn btn-outline-secondary">上一頁</a>
+</div>

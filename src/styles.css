@@ -1,0 +1,18 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+body {
+    background-image: url('assets/background1.jpg');
+    background-size: cover; /* 確保背景圖覆蓋整個視窗 */
+    background-repeat: no-repeat; /* 防止背景圖重複 */
+    background-position: center; /* 將背景圖置於中心 */
+    margin: 0;
+    font-family: Arial, sans-serif; /* 設置頁面字體樣式 */
+    
+}
+

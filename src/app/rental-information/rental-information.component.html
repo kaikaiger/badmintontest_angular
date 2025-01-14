@@ -1,0 +1,45 @@
+<!-- <p>rental-information works!</p> -->
+
+
+<div style="text-align: center; margin: auto;" class="mb-3 w-25">
+    <form #rentalCourtForm="ngForm" (ngSubmit)="onSearchRentalInfo(rentalCourtForm.value)">
+        <div>
+            <label for="phone" class="form-label">電話: </label>
+            <input id="phone" name="phone" ngModel required class="form-control">
+        </div>
+        
+        <br><input type="submit" value="查詢" [disabled]="rentalCourtForm.invalid" class="btn btn-secondary">
+    </form>
+</div>
+
+
+<div style="text-align: center; margin: auto;" class="mb-3 w-50">
+    <table *ngIf="rentedCourts.length>0" border="1" style="margin: auto;" class="table table-bordered border-light table-info table-striped table-hover">
+        <thead>
+            <tr>
+                <th>地區場館</th>
+                <th>場地</th>
+                <th>時段</th>
+                <th>租借人姓名</th>
+                <th>租借人電話</th>
+                <th>修改時段/取消租借</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let court of rentedCourts">
+                <td>{{court.courtArea}}</td>
+                <td>{{court.courtName}}</td>
+                <td>{{court.courtTime}}</td>
+                <td>{{court.renterName}}</td>
+                <td>{{court.renterPhone}}</td>
+
+                <td>
+                    <a routerLink="../update-rental-time/{{court.courtId}}" class="btn btn-primary">更改時段</a>&nbsp;&nbsp;<a routerLink="../delete-rental-time/{{court.courtId}}/{{court.courtTime}}" class="btn btn-primary">取消租借</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div style="text-align: center; margin: auto;">
+     <br><a routerLink="../court" class="btn btn-outline-secondary">首頁</a>
+</div>

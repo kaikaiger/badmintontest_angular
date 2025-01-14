@@ -1,0 +1,31 @@
+<!-- <p>court-status works!</p> -->
+
+<div style="text-align: center; margin: auto;">
+    <table border="0" style="margin: auto; width: 50%;" class="table table-bordered border-light table-success table-striped table-hover">
+        <thead>
+            <tr>
+                <th>地區場館</th>
+                <th>場地</th>
+                <th>上午(9:00~12:00)</th>
+                <th>下午(13:00~17:00)</th>
+                <th>預約</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let court of courts">
+                <td>{{court.area}}</td>
+                <td>{{court.name}}</td>
+                <td>
+                    <span *ngIf="court.morning; else notMorning" class="fw-bold">尚可租借</span>
+                    <ng-template #notMorning>不可租借</ng-template>
+                </td>
+                <td>
+                    <span *ngIf="court.afternoon; else notAfternoon" class="fw-bold">尚可租借</span>
+                    <ng-template #notAfternoon>不可租借</ng-template>
+                </td>
+                <td><br><a routerLink="../rental/{{court.id}}" class= "btn btn-success">預約</a></td>
+            </tr>
+        </tbody>
+    </table>
+    <br><a routerLink="../court" class="btn btn-outline-secondary">首頁</a>
+</div>

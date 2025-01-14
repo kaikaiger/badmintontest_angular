@@ -1,0 +1,43 @@
+<!-- <p>inquiry-court works!</p> -->
+
+<div style="text-align: center; margin: auto;" class="mb-3 w-25">
+    <form #inquiryCourtForm="ngForm" (ngSubmit)="onSearchRentalInfo(inquiryCourtForm.value)">
+        <div>
+            <label for="area" class="form-label">地區場館: </label>
+            <input id="area" name="area" ngModel required class="form-control">
+        </div>
+        
+        <br><input type="submit" value="查詢" [disabled]="inquiryCourtForm.invalid" class="btn btn-secondary">
+    </form>
+</div>
+
+
+<div style="text-align: center; margin: auto;" class="mb-3 w-25">
+    <table *ngIf="courts.length>0" border="1" style="margin: auto;" class="table table-bordered border-light table-info table-striped table-hover">
+        <thead>
+            <tr>
+                <th>地區場館</th>
+                <th>場地</th>
+                <th>上午(9:00~12:00)</th>
+                <th>下午(13:00~17:00)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let court of courts">
+                <td>{{court.area}}</td>
+                <td>{{court.name}}</td>
+                <td>
+                    <span *ngIf="court.morning; else notMorning" class="fw-bold">尚可租借</span>
+                    <ng-template #notMorning>不可租借</ng-template>
+                </td>
+                <td>
+                    <span *ngIf="court.afternoon; else notAfternoon" class="fw-bold">尚可租借</span>
+                    <ng-template #notAfternoon>不可租借</ng-template>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div style="text-align: center; margin: auto;">
+     <br><a routerLink="../court" class="btn btn-outline-secondary">首頁</a>
+</div>

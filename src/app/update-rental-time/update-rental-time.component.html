@@ -1,0 +1,26 @@
+<!-- <p>update-rental-time works!</p> -->
+
+<div style="text-align: center; margin: auto;" class="mb-3 w-25">
+    <form #updateRentalTimeForm="ngForm" (ngSubmit)="onSubmit(updateRentalTimeForm.value)">
+        
+        <div>
+            <label for="courtArea" class="form-label">地區場館: </label>
+            <input id="courtArea" name="courtArea" [(ngModel)]="court.area"
+                style="pointer-events: none; background-color: lightgray;" class="form-control">
+        </div>
+        <div>
+            <label for="courtName" class="form-label">場地: </label>
+            <input id="courtName" name="courtName" [(ngModel)]="court.name"
+                style="pointer-events: none; background-color: lightgray;" class="form-control">
+        </div>
+        <div>
+            <label for="time" class="form-label">租借時間: </label>
+            <select id="time" name="time" ngModel required class="form-control">
+                <option *ngFor="let time of availableTimes" [value]="time">{{time}}</option>
+            </select>
+        </div>
+
+        <br><input type="submit" value="確認" [disabled]="updateRentalTimeForm.invalid" class="btn btn-secondary">
+    </form>
+    <br><a routerLink="../../rental-information" class="btn btn-outline-secondary">上一頁</a>
+</div>

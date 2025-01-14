@@ -1,0 +1,17 @@
+<!-- <p>login works!</p> -->
+
+<div style="text-align: center; margin: auto;" class="mb-3 w-25">
+    <h1>{{title}}</h1>
+    <form #loginForm="ngForm" (ngSubmit)="OnLogin(loginForm.value)">
+        <div>
+            <label for="account" class="form-label">帳號: </label>
+            <input type="text" id="account" name="account" ngModel required class="form-control">
+        </div>
+        <div>
+            <label for="password" class="form-label">密碼: </label>
+            <input type="password" id="password" name="password" ngModel required class="form-control">
+        </div>
+        <br><input type="submit" value="登入" [disabled]="loginForm.invalid" class="btn btn-secondary">
+    </form>
+    <br><a routerLink="../court" class="btn btn-outline-secondary">首頁</a>
+</div>
