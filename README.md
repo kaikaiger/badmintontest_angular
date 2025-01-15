@@ -1,61 +1,60 @@
+# 羽球場地管理系統(Front-end)
 
-# MyApp
+羽球場地管理系統的前端專案，使用 Angular 開發，提供場地租借和管理的使用者介面。
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.6.
+## 架構
 
-## Development server
+### 前端(運行於本地 `http://localhost:4200`)
+- Angular
 
-To start a local development server, run:
-
-```bash
-ng serve
+### 專案結構
+```
+src/
+├── app/
+│   ├── components/         # 元件
+│   ├── models/            # 資料模型
+│   │   ├── court.ts
+│   │   ├── renter.ts
+│   │   └── manager.ts
+│   └── services/          # 服務
+│       ├── court.services.ts
+│       ├── renter.services.ts
+│       └── manager.services.ts
+└── assets/                # 靜態資源
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+### API 串接
+- 專案使用 RESTful API 與後端溝通，API 端點設定在各service.ts
+  - baseUrl = 'http://localhost:8080/Badminton/api/<courts/renters/managers>'
 
-## Code scaffolding
+## 功能特點
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+- 使用者功能
+  - 查看場地狀態（上午/下午時段）
+  - 場地預約
+  - 依區域查詢場地
+  - 租借者預約紀錄查詢
+  - 修改時段/取消預約
+- 管理員功能
+  - 管理員登入
+  - 場地管理
 
-```bash
-ng generate component component-name
-```
+### 主要功能頁面
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+- 場地租借預約總覽
+- 查詢場地
+- 預約紀錄
+- 管理員後台
 
-```bash
-ng generate --help
-```
+## 開發環境建置
 
-## Building
+### 必要條件
+- Node.js
+- Angular CLI
 
-To build the project run:
+### 系統需求
+- Angular 19.0.0
+- TypeScript 5.6.2
 
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
-
+### 啟動指令
+- ng serve --open:啟動開發伺服器
